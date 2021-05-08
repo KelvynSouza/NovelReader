@@ -1,0 +1,34 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div *ngIf="test">
+      <mat-expansion-panel
+        class="left-aligned-header"
+        *ngFor="let testsNames of test.TestsGroups"        
+      >
+        <mat-expansion-panel-header (click)="testsNames.show = !testsNames.show">
+          <mat-panel-title>
+            <i
+              class="material-icons-outlined"
+              *ngIf="testsNames.outcome; else Failed"
+            >
+              done
+            </i>
+            <ng-template #Failed>
+              <i class="material-icons-outlined">
+                cancel
+              </i>
+            </ng-template>
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ testsNames.nameSpace }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div *ngIf="testsNames.show">
+          <app-tests-classes
+            [Tests]="testsNames.testsclass"
+          ></app-tests-classes>
+        </div>
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>

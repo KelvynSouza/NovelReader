@@ -1,0 +1,23 @@
+<mat-expansion-panel
+  class="left-aligned-header"
+  *ngFor="let t of Test"  
+>
+  <mat-expansion-panel-header (click)="t.show = !t.show">
+    <mat-panel-title>
+      <i class="material-icons-outlined" *ngIf="t.outcome; else Failed">
+        done
+      </i>
+      <ng-template #Failed>
+        <i class="material-icons-outlined">
+          cancel
+        </i>
+      </ng-template>
+    </mat-panel-title>
+    <mat-panel-description>
+      {{ t.classname }}
+    </mat-panel-description>
+  </mat-expansion-panel-header>
+  <div *ngIf="t.show">
+    <app-tests-method [Test]="t.tests"></app-tests-method>
+  </div>
+</mat-expansion-panel>
