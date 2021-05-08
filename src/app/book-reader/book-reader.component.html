@@ -1,0 +1,24 @@
+<div class="main-content">
+  <div class="container-fluid">
+    <div *ngIf="cpList">
+      <mat-expansion-panel
+        class="left-aligned-header"
+        *ngFor="let chapterInfo of cpList"        
+      >
+        <mat-expansion-panel-header>
+          <mat-panel-title>            
+            {{chapterInfo.chapterNumber}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{ chapterInfo.title }}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+       <!-- <div *ngIf="testsNames.show">
+          <app-book-chapter
+            [Tests]="testsNames.testsclass"
+          ></app-book-chapter>
+        </div>-->
+      </mat-expansion-panel>
+    </div>
+  </div>
+</div>

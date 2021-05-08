@@ -7,6 +7,7 @@ import { TypographyComponent } from '../../typography/typography.component';
 import { IconsComponent } from '../../icons/icons.component';
 import { NotificationsComponent } from '../../notifications/notifications.component';
 import { TestsListComponent } from 'app/tests-list/tests-list.component';
+import { BookReaderComponent} from '../../book-reader/book-reader.component';
 
 export const AdminLayoutRoutes: Routes = [
     // {
@@ -58,4 +59,6 @@ export const AdminLayoutRoutes: Routes = [
     { path: 'icons',          component: IconsComponent },
     { path: 'notifications',  component: NotificationsComponent },
     { path: 'tests-list',  component: TestsListComponent },
+    { path: 'book-reader',  component: BookReaderComponent },
+
 ];

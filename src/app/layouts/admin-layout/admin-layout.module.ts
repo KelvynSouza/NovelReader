@@ -18,6 +18,7 @@ import {
   MatSelectModule
 } from '@angular/material';
 import { TestsListModule } from 'app/tests-list/tests-list.module';
+import { BookReaderModule} from '../../book-reader/book-reader.module';
 @NgModule({
   imports: [
     CommonModule,
@@ -30,7 +31,8 @@ import { TestsListModule } from 'app/tests-list/tests-list.module';
     MatInputModule,
     MatSelectModule,
     MatTooltipModule,
-    TestsListModule
+    TestsListModule,
+    BookReaderModule
   ],
   declarations: [
     DashboardComponent,
