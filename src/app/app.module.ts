@@ -16,6 +16,11 @@ import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { MaterialModule } from './tests-list/material-module';
 import { TestsListModule } from './tests-list/tests-list.module';
 import { TestsListService } from './tests-list/tests-list.service';
+import { BookReaderModule } from './book-reader/book-reader.module';
+import { BookReaderService } from './book-reader/book-reader.service';
+import { HttpClientModule } from '@angular/common/http';
+
+
 
 @NgModule({
   imports: [
@@ -23,20 +28,23 @@ import { TestsListService } from './tests-list/tests-list.service';
     FormsModule,
     ReactiveFormsModule,
     HttpModule,
+    HttpClientModule,
     ComponentsModule,
     RouterModule,
     NgbModule,
     MaterialModule,
     AppRoutingModule,    
-    TestsListModule
-    
+    TestsListModule,
+    BookReaderModule    
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-
+    AdminLayoutComponent
   ],
-  providers: [TestsListService],
+  providers: [
+    TestsListService,
+    BookReaderService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
