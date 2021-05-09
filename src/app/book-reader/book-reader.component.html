@@ -1,24 +1,35 @@
-<div class="main-content">
+<!--<div class="container-fluid" style="margin-top: 7vh;">
+  
+</div>-->
+<div class="mt-4 main-content">
   <div class="container-fluid">
-    <div *ngIf="cpList">
-      <mat-expansion-panel
-        class="left-aligned-header"
-        *ngFor="let chapterInfo of cpList"        
-      >
-        <mat-expansion-panel-header>
-          <mat-panel-title>            
-            {{chapterInfo.chapterNumber}}
-          </mat-panel-title>
-          <mat-panel-description>
-            {{ chapterInfo.title }}
-          </mat-panel-description>
-        </mat-expansion-panel-header>
+
+    <div class="row">
+
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <img src="../../assets/img/Face/EndingMakerImg.jpg" class="img-thumbnail img-fluid float-start" alt="...">
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-6">
+        <div id="editdescription" style="box-sizing: border-box; margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; color: rgb(92, 97, 102); font-family: Open Sans; font-size: 15px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">Two heroes of the game Legend of Heroes 2 that were rotten water*.</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">Kang Jin-ho in the first place and Hong Yoo Hee in the second place.</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">One day, I opened my eyes and reincarnated as a character in the game…</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">“Hey…you too?”</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">“Hey…me too!”</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">The ending of Legend of Heroes 2 is the destruction of the human world.</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">But if there’s two of us and we’re not alone.</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">If it is also the #1 and #2 in the server rankings.</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">The path of rotten water begins for a perfect happy ending!</span></p><p style="box-sizing: border-box; margin: 0px 0px 20px; padding: 0px; border: 0px; outline: 0px; vertical-align: baseline; background: 0px 0px; color: rgb(92, 97, 102);"><span style="font-family: Arial;">(*Rotten water is Korean slang for someone who has played a certain game for a long time and mastered everything. Think of them as oldbies, veterans, or game pros.)</span></p></div>
+      </div>
+      
+    </div>
+
+    <div *ngIf="cpList" class="mt-1">      
+      <div class="list-group">
+        <li routerLinkActive="active" href="#" class="list-group-item list-group-item-action" aria-current="true" 
+        *ngFor="let chapterInfo of cpList">  
+        <a [routerLink]="['/book-chapter',chapterInfo.chapterNumber]">        
+            {{chapterInfo.chapterNumber}} - {{chapterInfo.title}} 
+          </a>         
+        </li>
+      </div>
        <!-- <div *ngIf="testsNames.show">
           <app-book-chapter
             [Tests]="testsNames.testsclass"
           ></app-book-chapter>
         </div>-->
-      </mat-expansion-panel>
     </div>
   </div>
 </div>
+

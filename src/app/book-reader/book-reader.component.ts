@@ -7,9 +7,10 @@ import {
   Output,
   OnDestroy
 } from "@angular/core";
+import { Subscriber, Subscription } from "rxjs";
+
 import { BookReaderService } from "./book-reader.service";
 import { ChapterList } from "./model/chapterlist-model";
-import { Subscriber, Subscription } from "rxjs";
 
 @Component({
   selector: "app-book-reader",
