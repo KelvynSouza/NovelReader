@@ -43,6 +43,7 @@
   </div>
 </nav>
 
+<!-- Modal com as configurações-->
 <div
   class="modal fade"
   id="exampleModal"
@@ -68,18 +69,18 @@
         <div class="container">
           <div class="row">
             <div class="col-sm-12">
-              <input type="file" id="teste" (change)="changeFile($event)" />
+              <input type="file" id="book" (change)="changeFile($event)" />
             </div>
           </div>
-          <div class="row align-items-center">
+          <div class="mt-4 row align-items-center">
             <div class="col-sm-1">
-              <button type="button" style="border:none;" (click)="defaultTests()" [disabled]="buttonDisable">
+              <button type="button" style="border:none;" (click)="defaultChapters()" [disabled]="buttonDisable">
                 <i class="material-icons" style="font-size: 30px">autorenew</i>
               </button>
             </div>
             <div class="col-sm-11">
               <span style="padding-left: 10px;">
-                Recarregar informações
+                Recarregar capitulos base
               </span>
             </div>
           </div>
@@ -87,7 +88,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">
-          Close
+          Fechar
         </button>
         <div *ngIf="fileAlive">
           <button
@@ -96,7 +97,7 @@
             (click)="processChanges()"
             data-dismiss="modal"
           >
-            Save changes
+            Salvar Mudanças
           </button>
         </div>
       </div>

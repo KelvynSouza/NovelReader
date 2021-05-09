@@ -7,7 +7,7 @@ import { BookChapterComponent} from '../../book-reader/book-chapter/book-chapter
 export const AdminLayoutRoutes: Routes = [    
     { path: 'tests-list',  component: TestsListComponent },
     { path: 'book-reader',  component: BookReaderComponent },
-    { path: 'book-chapter/:chnumber',  component: BookChapterComponent },
+    { path: 'book-chapter/:number',  component: BookChapterComponent },
 
 
 ];

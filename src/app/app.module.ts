@@ -35,13 +35,11 @@ import { HttpClientModule } from '@angular/common/http';
     MaterialModule,
     AppRoutingModule,    
     TestsListModule,
-    BookReaderModule
-    
+    BookReaderModule    
   ],
   declarations: [
     AppComponent,
-    AdminLayoutComponent,
-
+    AdminLayoutComponent
   ],
   providers: [
     TestsListService,

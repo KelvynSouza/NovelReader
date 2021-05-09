@@ -30,6 +30,7 @@ import { BookChapterModule} from '../../book-reader/book-chapter/book-chapter.mo
     TestsListModule,
     BookReaderModule,
     BookChapterModule
+    
   ],
   declarations: [
     
