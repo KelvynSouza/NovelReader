@@ -1,5 +1,5 @@
-import { Location } from '@angular/common';
-import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { DOCUMENT, Location } from '@angular/common';
+import { Component, Input, SimpleChanges, OnChanges, Inject, OnInit, OnDestroy } from '@angular/core';
 import { Router, ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { Subscriber, Subscription } from "rxjs";
 
@@ -12,7 +12,7 @@ import { ChapterContent } from '../model/chaptercontent-model';
   templateUrl: './book-chapter.component.html',
   styleUrls: ['./book-chapter.component.css']
 })
-export class BookChapterComponent {
+export class BookChapterComponent implements  OnInit, OnDestroy{
     
   ChapterNumber:string;
   ChapterContent:ChapterContent;
@@ -23,14 +23,19 @@ export class BookChapterComponent {
     private bookReaderservice: BookReaderService,
     private router: Router,
     private location: Location,
+    @Inject(DOCUMENT) document
     ) { }
+ 
 
   ngOnInit() {    
       this.ChapterNumber = this.route.snapshot.paramMap.get('number');   
 
       this.bookReaderservice.getChapterText(this.ChapterNumber);
-      this.subscriber = this.bookReaderservice.chapterContent$.subscribe(e => {
+      this.subscriber = this.bookReaderservice.chapterContent$.subscribe(e => {        
         this.ChapterContent = e;
+        if(this.ChapterContent !== null){
+          this.appendDataInPage()
+        }
       });      
   }
 
@@ -40,8 +45,8 @@ export class BookChapterComponent {
     let newurl = this.location.path().replace(String(this.ChapterContent.chapNumber), String(nextchapter));
     this.location.go(newurl);
 
-    this.router.navigate
     this.bookReaderservice.getChapterText(nextchapter);
+    this.appendDataInPage()
   }
   previousChapter(){
     const previouschapter = this.ChapterContent.chapNumber-1;
@@ -49,8 +54,19 @@ export class BookChapterComponent {
     let newurl = this.location.path().replace(String(this.ChapterContent.chapNumber), String(previouschapter));
     this.location.go(newurl);
 
-    this.bookReaderservice.getChapterText(previouschapter);
+    this.bookReaderservice.getChapterText(previouschapter);    
+  }
+  appendDataInPage(){
+    const text = this.ChapterContent.text.replace(/(?:\r\n|\r|\n)/g, '<br>');
+
+    var $divContent = document.getElementsByName("chapterContent")[0];
+    $divContent.innerHTML = "";
+    $divContent.insertAdjacentHTML('beforeend', text);
   }
 
+  ngOnDestroy() {
+    this.subscriber.unsubscribe();
+   
+  }
   
 }

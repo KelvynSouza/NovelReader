@@ -1,4 +1,4 @@
-<div class="main-content" *ngIf="ChapterContent">
+<div class="main-content" > <!--*ngIf="ChapterContent"-->
     <div class="container-fluid">
         <div class="row button-row">
 
@@ -30,9 +30,9 @@
             </div>
         </div>
 
-        <p class="multi_lines_text">
-            {{ChapterContent.text}}
-        </p>
+        <div class="multi_lines_text" name="chapterContent">
+            <!--{{ChapterContent.text}}-->
+        </div>
         
         <div class="row button-row button-row-end">
 
@@ -64,4 +64,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> 
