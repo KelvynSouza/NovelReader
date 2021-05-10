@@ -1,6 +1,6 @@
 export class ChapterContent {
     id: Number;
-    chapNumber: Number;
+    chapNumber: number;
     title: string = "";
     text: string = "";
 }

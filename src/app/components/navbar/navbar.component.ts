@@ -81,9 +81,11 @@ export class NavbarComponent implements OnInit {
 
         this.bookService.postFillDatabaseChaptersByFile(formData)
             .then(res => {
+                this.openSnackBar("Carregado com sucesso!")
                  console.log("Carregamento de capitulos por arquivo realizado com sucesso") 
                 })
             .catch(rej => { 
+                this.openSnackBar("Falha ao carregar!")
                 console.log("Nao foi possivel realizar chamada para recarregar  capitulos") 
             });
     }

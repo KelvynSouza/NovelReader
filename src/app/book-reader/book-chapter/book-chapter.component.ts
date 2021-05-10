@@ -1,5 +1,6 @@
+import { Location } from '@angular/common';
 import { Component, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Router, ActivatedRoute, ParamMap, Params } from '@angular/router';
 import { Subscriber, Subscription } from "rxjs";
 
 import { BookReaderService } from '../book-reader.service';
@@ -19,7 +20,9 @@ export class BookChapterComponent {
 
   constructor( 
     private route: ActivatedRoute,
-    private bookReaderservice: BookReaderService
+    private bookReaderservice: BookReaderService,
+    private router: Router,
+    private location: Location,
     ) { }
 
   ngOnInit() {    
@@ -28,8 +31,25 @@ export class BookChapterComponent {
       this.bookReaderservice.getChapterText(this.ChapterNumber);
       this.subscriber = this.bookReaderservice.chapterContent$.subscribe(e => {
         this.ChapterContent = e;
-      });
+      });      
+  }
 
+  nextChapter(){
+    const nextchapter = this.ChapterContent.chapNumber+1;
+
+    let newurl = this.location.path().replace(String(this.ChapterContent.chapNumber), String(nextchapter));
+    this.location.go(newurl);
+
+    this.router.navigate
+    this.bookReaderservice.getChapterText(nextchapter);
+  }
+  previousChapter(){
+    const previouschapter = this.ChapterContent.chapNumber-1;
+
+    let newurl = this.location.path().replace(String(this.ChapterContent.chapNumber), String(previouschapter));
+    this.location.go(newurl);
+
+    this.bookReaderservice.getChapterText(previouschapter);
   }
 
   
